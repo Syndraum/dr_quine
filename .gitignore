@@ -2,6 +2,7 @@
 *.out
 *.o
 
-*/Colleen
-*/Grace
-*/Sully
+*/*/Colleen
+tmp_colleen
+*/*/Grace
+*/*/Sully

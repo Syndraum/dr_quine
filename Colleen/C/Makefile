@@ -6,7 +6,7 @@ OBJS	= ${SRCS:.c=.o}
 CC		= clang
 CFLAGS	= -Wall -Wextra -Werror
 
-TMP		= tmp_collen
+TMP		= tmp_colleen
 
 %.o : ./%.c
 	${CC} ${CFLAGS} -c -o $@ $<
@@ -22,6 +22,7 @@ clean:
 
 fclean: clean
 	rm -rf ${NAME}
+	rm -rf ${TMP}
 
 re: fclean all
 
@@ -29,6 +30,7 @@ run: all
 	./${NAME}
 
 test: re
+	rm -rf ${TMP}
 	./${NAME} > ${TMP}
 	diff ${SRCS} ${TMP}
 
