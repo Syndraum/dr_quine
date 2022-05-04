@@ -1,22 +1,21 @@
 NAME	= Colleen
 
-SRCS	= colleen.c
-OBJS	= ${SRCS:.c=.o}
+SRCS	= colleen.s
+OBJS	= ${SRCS:.s=.o}
 
 CC		= clang
 CFLAGS	= -Wall -Wextra -Werror
 
 TMP		= tmp_colleen
 
-%.o : ./%.c
-	${CC} ${CFLAGS} -c $< -o $@
+%.o : ./%.s
+	nasm -felf64 $<
 
 
 all:		${NAME}
 
 ${NAME}:	${OBJS}
-	${CC} ${CFLAGS} ${OBJS} -o ${NAME}
-
+	${CC} ${CFLAGS} -o ${NAME} ${OBJS}
 clean:
 	rm -rf ${OBJS}
 
