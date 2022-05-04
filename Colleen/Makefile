@@ -6,6 +6,8 @@ OBJS	= ${SRCS:.c=.o}
 CC		= clang
 CFLAGS	= -Wall -Wextra -Werror
 
+TMP		= tmp_collen
+
 %.o : ./%.c
 	${CC} ${CFLAGS} -c -o $@ $<
 
@@ -23,4 +25,11 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+run: all
+	./${NAME}
+
+test: re
+	./${NAME} > ${TMP}
+	diff ${SRCS} ${TMP}
+
+.PHONY: all clean fclean re test
