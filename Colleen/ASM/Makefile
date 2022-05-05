@@ -4,7 +4,7 @@ SRCS	= colleen.s
 OBJS	= ${SRCS:.s=.o}
 
 CC		= clang
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -no-pie
 
 TMP		= tmp_colleen
 
