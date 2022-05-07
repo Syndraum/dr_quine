@@ -1,6 +1,6 @@
 NAME	= Colleen
 
-SRCS	= colleen.c
+SRCS	= Colleen.c
 OBJS	= ${SRCS:.c=.o}
 
 CC		= clang
