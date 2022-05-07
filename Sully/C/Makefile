@@ -36,7 +36,4 @@ test: re
 	./${NAME}
 	# diff ${SRCS} ${OUTPUT}
 
-echo:
-	echo "TEST"
-
 .PHONY: all clean fclean re test
