@@ -36,10 +36,6 @@ test: re
 	./${NAME}
 	# diff ${SRCS} ${OUTPUT}
 
-child: $(addsuffix .o, $(addprefix Sully_, ${N}))
-	${CC} ${CFLAGS} Sully_${N}.o -o ${NAME}
-	./${NAME}
-
 echo:
 	echo "TEST"
 
