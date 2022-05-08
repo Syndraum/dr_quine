@@ -12,7 +12,6 @@ OUTPUT_OBJS	= ${OUTPUT:.s=.o}
 %.o : ./%.s
 	nasm -felf64 $<
 
-
 all:		${NAME}
 
 ${NAME}:	${OBJS}
