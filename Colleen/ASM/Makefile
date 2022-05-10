@@ -6,7 +6,7 @@ OBJS	= ${SRCS:.s=.o}
 CC		= clang
 CFLAGS	= -Wall -Wextra -Werror -no-pie
 
-TMP		= tmp_colleen
+TMP		= copy_colleen.s
 
 %.o : ./%.s
 	nasm -felf64 $<
@@ -28,7 +28,7 @@ re: fclean all
 run: all
 	./${NAME}
 
-test: re
+test: all
 	rm -rf ${TMP}
 	./${NAME} > ${TMP}
 	diff ${SRCS} ${TMP}

@@ -31,7 +31,7 @@ re: fclean all
 run: all
 	./${NAME}
 
-test: re
+test: all
 	rm -rf ${OUTPUT}
 	./${NAME}
 	# diff ${SRCS} ${OUTPUT}
