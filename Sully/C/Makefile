@@ -7,7 +7,7 @@ CC		= clang
 CFLAGS	= -Wall -Wextra -Werror
 
 OUTPUT		= Sully_*.c
-OUTPUT_OBJS	= ${OUTPUT:.c=.o}
+OUTPUT_OBJS	= ${OUTPUT:.c=}
 
 %.o : ./%.c
 	${CC} ${CFLAGS} -c $< -o $@
