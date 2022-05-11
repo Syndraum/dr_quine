@@ -4,13 +4,13 @@ SRCS	= Sully.s
 OBJS	= ${SRCS:.s=.o}
 
 CC		= clang
-CFLAGS	= -Wall -Wextra -Werror -no-pie
+CFLAGS	= -Wall -Wextra -Werror -g -no-pie
 
-OUTPUT		= Sully_*.s
+OUTPUT		= Sully_*
 OUTPUT_OBJS	= ${OUTPUT:.s=.o}
 
 %.o : ./%.s
-	nasm -felf64 $<
+	nasm -felf64 -g $<
 
 all:		${NAME}
 
