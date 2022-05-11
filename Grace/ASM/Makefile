@@ -4,7 +4,7 @@ SRCS	= Grace.s
 OBJS	= ${SRCS:.s=.o}
 
 CC		= clang
-CFLAGS	= -Wall -Wextra -Werror -no-pie
+CFLAGS	= -Wall -Wextra -Werror
 
 OUTPUT	= Grace_kid.s
 

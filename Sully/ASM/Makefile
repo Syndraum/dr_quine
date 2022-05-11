@@ -4,7 +4,7 @@ SRCS	= Sully.s
 OBJS	= ${SRCS:.s=.o}
 
 CC		= clang
-CFLAGS	= -Wall -Wextra -Werror -g -no-pie
+CFLAGS	= -Wall -Wextra -Werror -g
 
 OUTPUT		= Sully_*
 OUTPUT_OBJS	= ${OUTPUT:.s=.o}
