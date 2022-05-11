@@ -4,13 +4,13 @@ SRCS	= Sully.s
 OBJS	= ${SRCS:.s=.o}
 
 CC		= clang
-CFLAGS	= -Wall -Wextra -Werror -g
+CFLAGS	= -Wall -Wextra -Werror
 
 OUTPUT		= Sully_*
-OUTPUT_OBJS	= ${OUTPUT:.s=.o}
+OUTPUT_BIN	= ${OUTPUT:.s=.o}
 
 %.o : ./%.s
-	nasm -felf64 -g $<
+	nasm -felf64 $<
 
 all:		${NAME}
 
@@ -18,10 +18,9 @@ ${NAME}:	${OBJS}
 	${CC} ${CFLAGS} -o ${NAME} ${OBJS}
 clean:
 	rm -rf ${OBJS}
-	rm -rf ${OUTPUT_OBJS}
 
 fclean: clean
-	rm -rf ${OUTPUT}
+	rm -rf ${OUTPUT_BIN}
 	rm -rf ${NAME}
 
 re: fclean all
@@ -29,9 +28,4 @@ re: fclean all
 run: all
 	./${NAME}
 
-test: all
-	rm -rf ${OUTPUT}
-	./${NAME}
-	diff ${SRCS} ${OUTPUT}
-
-.PHONY: all clean fclean re test
+.PHONY: all clean fclean re

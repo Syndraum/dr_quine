@@ -7,7 +7,7 @@ CC		= clang
 CFLAGS	= -Wall -Wextra -Werror
 
 OUTPUT		= Sully_*.c
-OUTPUT_OBJS	= ${OUTPUT:.c=}
+OUTPUT_BIN	= ${OUTPUT:.c=}
 
 %.o : ./%.c
 	${CC} ${CFLAGS} -c $< -o $@
@@ -20,10 +20,9 @@ ${NAME}:	${OBJS}
 
 clean:
 	rm -rf ${OBJS}
-	rm -rf ${OUTPUT_OBJS}
 
 fclean: clean
-	rm -rf ${OUTPUT}
+	rm -rf ${OUTPUT_BIN}
 	rm -rf ${NAME}
 
 re: fclean all
@@ -31,9 +30,4 @@ re: fclean all
 run: all
 	./${NAME}
 
-test: all
-	rm -rf ${OUTPUT}
-	./${NAME}
-	# diff ${SRCS} ${OUTPUT}
-
-.PHONY: all clean fclean re test
+.PHONY: all clean fclean re                                                                                                                                                                                                                                                                                                                                                                                                       

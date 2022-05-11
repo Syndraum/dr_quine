@@ -6,7 +6,7 @@ OBJS	= ${SRCS:.c=.o}
 CC		= clang
 CFLAGS	= -Wall -Wextra -Werror
 
-TMP		= copy_colleen.c
+OUTPUT		= copy_colleen.c
 
 %.o : ./%.c
 	${CC} ${CFLAGS} -c $< -o $@
@@ -22,7 +22,7 @@ clean:
 
 fclean: clean
 	rm -rf ${NAME}
-	rm -rf ${TMP}
+	rm -rf ${OUTPUT}
 
 re: fclean all
 
@@ -30,8 +30,8 @@ run: all
 	./${NAME}
 
 test: all
-	rm -rf ${TMP}
-	./${NAME} > ${TMP}
-	diff ${SRCS} ${TMP}
+	rm -rf ${OUTPUT}
+	./${NAME} > ${OUTPUT}
+	diff ${SRCS} ${OUTPUT}
 
 .PHONY: all clean fclean re test
